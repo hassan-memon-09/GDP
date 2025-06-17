@@ -1,0 +1,64 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const Footer = () => {
+  return (
+    <footer className="bg-darkBg text-gold pt-16 pb-6 px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        {/* About */}
+        <div>
+          <h2 className="text-2xl font-bold mb-4">MyWebsite</h2>
+          <p className="text-sm">A108 Adam Street<br />New York, NY 535022</p>
+          <p className="mt-3 text-sm"><strong>Phone:</strong> +1 5589 55488 55</p>
+          <p className="text-sm"><strong>Email:</strong> info@example.com</p>
+          <div className="flex gap-3 mt-4">
+            <a href="#" className="hover:text-softGold text-xl">X</a>
+            <a href="#" className="hover:text-softGold text-xl">Fb</a>
+            <a href="#" className="hover:text-softGold text-xl">Ig</a>
+            <a href="#" className="hover:text-softGold text-xl">In</a>
+          </div>
+        </div>
+
+        {/* Useful Links */}
+        <div>
+          <h4 className="text-lg font-semibold mb-2">Useful Links</h4>
+          <ul className="text-sm space-y-1">
+            <li><Link to="#" className="hover:text-softGold">Home</Link></li>
+            <li><Link to="#" className="hover:text-softGold">About us</Link></li>
+            <li><Link to="#" className="hover:text-softGold">Services</Link></li>
+            <li><Link to="#" className="hover:text-softGold">Terms of service</Link></li>
+            <li><Link to="#" className="hover:text-softGold">Privacy policy</Link></li>
+          </ul>
+        </div>
+
+        {/* Services */}
+        <div>
+          <h4 className="text-lg font-semibold mb-2">Our Services</h4>
+          <ul className="text-sm space-y-1">
+            <li><Link to="#" className="hover:text-softGold">Web Design</Link></li>
+            <li><Link to="#" className="hover:text-softGold">Development</Link></li>
+            <li><Link to="#" className="hover:text-softGold">Marketing</Link></li>
+            <li><Link to="#" className="hover:text-softGold">Graphics</Link></li>
+          </ul>
+        </div>
+
+        {/* Extra Links */}
+        <div>
+          <h4 className="text-lg font-semibold mb-2">Explore</h4>
+          <ul className="text-sm space-y-1">
+            <li><Link to="#" className="hover:text-softGold">Molestiae</Link></li>
+            <li><Link to="#" className="hover:text-softGold">Excepturi</Link></li>
+            <li><Link to="#" className="hover:text-softGold">Suscipit</Link></li>
+            <li><Link to="#" className="hover:text-softGold">Dilecta</Link></li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="text-center text-sm mt-8 border-t border-shadowBlack pt-4">
+        © <strong>MyWebsite</strong> — All Rights Reserved
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
