@@ -1,24 +1,59 @@
-import React from "react";
+// ✅ Enhanced Landing with 360° 3D Image (Box) & Typing Animation
+import React, { Suspense } from "react";
 import illustration from "../assets/img/illustration/illustration-16.webp";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Stars } from "@react-three/drei";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls, useTexture } from "@react-three/drei";
 import { motion } from "framer-motion";
+import Typewriter from "typewriter-effect";
+import * as THREE from "three";
+
+// 🎯 3D Rotating Box Image Component
+const RotatingImage = () => {
+  const texture = useTexture(illustration);
+  return (
+    <mesh rotation={[0, 0, 0]}>
+      <boxGeometry args={[3, 2, 0.5]} />
+      <meshStandardMaterial map={texture} />
+    </mesh>
+  );
+};
+
+// ✨ Stars Animation Background
+const Starfield = () => {
+  const starGeo = new THREE.BufferGeometry();
+  const starCount = 2000;
+  const positions = [];
+
+  for (let i = 0; i < starCount; i++) {
+    const x = (Math.random() - 0.5) * 200;
+    const y = (Math.random() - 0.5) * 200;
+    const z = -Math.random() * 200;
+    positions.push(x, y, z);
+  }
+
+  starGeo.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+
+  const starMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.7 });
+
+  return <points geometry={starGeo} material={starMaterial} />;
+};
 
 const Landing = () => {
   return (
     <div className="relative overflow-hidden min-h-screen">
       {/* 🎆 3D Stars Background */}
-      <div className="absolute inset-0 -z-10">
-        <Canvas style={{ background: "transparent" }}>
+      <div className="fixed inset-0 -z-10">
+        <Canvas style={{ background: "black" }} camera={{ position: [0, 0, 5] }}>
           <ambientLight intensity={0.5} />
           <directionalLight position={[5, 5, 5]} />
-          <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
+          <Suspense fallback={null}>
+            <Starfield />
+          </Suspense>
         </Canvas>
       </div>
 
       {/* 💫 Foreground Content */}
-      <section className="relative z-10 bg-darkBg backdrop-blur-sm text-gold py-24 px-6 md:px-20 lg:px-32 min-h-screen">
+      <section className="relative z-10 bg-darkBg/80 backdrop-blur-sm text-gold py-24 px-6 md:px-20 lg:px-32 min-h-screen">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left Content */}
           <motion.div
@@ -34,7 +69,17 @@ const Landing = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-              Accelerating business growth through innovative technology
+              <Typewriter
+                options={{
+                  strings: [
+                    "Accelerating business growth",
+                    "With immersive 3D & animation",
+                    "Empowering digital experiences"
+                  ],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
             </h1>
 
             <p className="text-softGold text-base md:text-lg">
@@ -50,19 +95,21 @@ const Landing = () => {
             </a>
           </motion.div>
 
-          {/* Right Image */}
+          {/* Right 3D Box Image */}
           <motion.div
             initial={{ x: 100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="lg:w-1/2"
+            className="lg:w-1/2 h-[300px] w-full"
           >
-            <img
-              src={illustration}
-              alt="Business Growth"
-              className="rounded-lg w-full h-auto shadow-lg"
-            />
+            <Canvas camera={{ position: [0, 0, 4] }}>
+              <ambientLight intensity={0.5} />
+              <Suspense fallback={null}>
+                <RotatingImage />
+              </Suspense>
+              <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.8} />
+            </Canvas>
           </motion.div>
         </div>
 

@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo/Logo.jpg"; // adjust the path if needed
 
 const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-darkBg bg-opacity-90 text-gold shadow-md">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <Link to="/" className="text-gold font-semibold hover:text-softGold transition">
-          Invent
+        {/* Logo Image */}
+        <Link to="/" className="flex items-center">
+          <img src={logo} alt="Logo" className="h-12 w-30" />
         </Link>
 
         <nav className="hidden md:flex gap-6">
