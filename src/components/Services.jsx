@@ -1,66 +1,96 @@
+// ✅ Services Page with Proper Canvas Layer Behind Content
 import React from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Stars } from "@react-three/drei";
+import { FaFilm, FaCube, FaMagic, FaChalkboard, FaPaintBrush, FaFont, FaSmile, FaPhotoVideo } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Services = () => {
   const serviceItems = [
     {
-      icon: "bi bi-code-slash",
-      title: "Custom Web Development",
-      desc: "Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Nulla quis lorem ut libero malesuada feugiat."
+      icon: <FaFilm className="text-5xl text-gold" />, title: "2D Animation",
+      desc: "We create engaging 2D animations for explainer videos, educational content, and more to deliver your message effectively."
     },
     {
-      icon: "bi bi-phone-fill",
-      title: "Mobile App Solutions",
-      desc: "Praesent sapien massa, convallis a pellentesque nec, egestas non nisi."
+      icon: <FaCube className="text-5xl text-gold" />, title: "3D Animation",
+      desc: "Stunning 3D animation for product demos, architecture, and immersive storytelling."
     },
     {
-      icon: "bi bi-palette2",
-      title: "UI/UX Design",
-      desc: "Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus."
+      icon: <FaMagic className="text-5xl text-gold" />, title: "VFX / CGI",
+      desc: "We blend reality with imagination through cutting-edge visual effects and CGI for film, ads, and presentations."
     },
     {
-      icon: "bi bi-bar-chart-line",
-      title: "Digital Marketing",
-      desc: "Donec rutrum congue leo eget malesuada. Mauris blandit aliquet elit."
+      icon: <FaChalkboard className="text-5xl text-gold" />, title: "Web Development",
+      desc: "Custom websites and web apps using the latest technologies tailored to your business needs."
     },
     {
-      icon: "bi bi-cloud-check",
-      title: "Cloud Computing",
-      desc: "Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh."
+      icon: <FaPaintBrush className="text-5xl text-gold" />, title: "Whiteboard Animation",
+      desc: "Crisp whiteboard animations ideal for tutorials, business pitches, and storytelling."
     },
     {
-      icon: "bi bi-shield-lock",
-      title: "Cybersecurity Solutions",
-      desc: "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui."
+      icon: <FaFont className="text-5xl text-gold" />, title: "Logo Animation",
+      desc: "Add motion to your brand with animated logos that leave a lasting impression."
+    },
+    {
+      icon: <FaSmile className="text-5xl text-gold" />, title: "Cartoon Animation",
+      desc: "Fun and colorful cartoon animations for children’s content, ads, and entertainment."
+    },
+    {
+      icon: <FaPhotoVideo className="text-5xl text-gold" />, title: "Graphic Motion",
+      desc: "Eye-catching motion graphics for ads, social media, intros, and branding."
     },
   ];
 
   return (
-    <section className="py-20 px-6 md:px-20 bg-darkBg text-gold min-h-screen">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">Services</h2>
-          <p className="text-softGold max-w-xl mx-auto">
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {serviceItems.map((item, index) => (
-            <div key={index} className="bg-shadowBlack p-6 rounded-lg hover:shadow-lg transition">
-              <div className="text-4xl mb-4">
-                <i className={item.icon}></i>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-              <p className="text-softGold text-sm mb-4">{item.desc}</p>
-              <a href="#" className="inline-flex items-center text-gold font-semibold hover:text-softGold transition">
-                <span>Learn More</span>
-                <i className="bi bi-arrow-right ml-2" />
-              </a>
-            </div>
-          ))}
-        </div>
+    <div className="relative m-0 p-0 -mt-4">
+      {/* Canvas Background Layer */}
+      <div className="absolute inset-0 -z-10">
+        <Canvas>
+          <ambientLight intensity={0.5} />
+          <directionalLight position={[5, 5, 5]} />
+          <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={2} />
+          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
+        </Canvas>
       </div>
-    </section>
+
+      <section className="relative z-10 py-20 px-6 md:px-20 bg-darkBg text-gold min-h-screen backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-2">Our Services</h2>
+            <p className="text-softGold max-w-xl mx-auto">
+              Explore the range of creative and development services we offer to bring your ideas to life.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {serviceItems.map((item, index) => (
+              <motion.div
+                key={index}
+                className="bg-shadowBlack p-6 rounded-lg flex flex-col items-center text-center hover:shadow-2xl hover:scale-105 transition-transform duration-300 ease-in-out"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="mb-4">{item.icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <p className="text-softGold text-sm mb-4">{item.desc}</p>
+                <a href="#" className="inline-flex items-center text-gold font-semibold hover:text-softGold transition">
+                  <span>Learn More</span>
+                  <i className="bi bi-arrow-right ml-2" />
+                </a>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
 

@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 
 const Home = () => {
   return (
-    <main className="main">
+<>
       {/*<Cursor /> */}
     <Navbar/>
     <Landing/>
@@ -19,7 +19,7 @@ const Home = () => {
     <Portfolio/>
     <Contact/>
     <Footer/>
-    </main>
+  </>
   );
 };
 
