@@ -1,12 +1,12 @@
 // ✅ Portfolio Page with Framer Motion + 3D Tile Hover Effects
 import React from "react";
 import { motion } from "framer-motion";
-import portfolio1 from "../assets/img/portfolio/portfolio-1.webp";
-import portfolio2 from "../assets/img/portfolio/portfolio-2.webp";
-import portfolio4 from "../assets/img/portfolio/portfolio-4.webp";
-import portfolio7 from "../assets/img/portfolio/portfolio-7.webp";
-import portfolio10 from "../assets/img/portfolio/portfolio-10.webp";
-import portfolio11 from "../assets/img/portfolio/portfolio-11.webp";
+import portfolio1 from "../assets/img/portfolio/Web.png";
+import portfolio2 from "../assets/img/portfolio/Web.png";
+import portfolio4 from "../assets/img/portfolio/Motion.jpg";
+import portfolio7 from "../assets/img/portfolio//Motion.jpg";
+import portfolio10 from "../assets/img/portfolio/Graphics.jpg";
+import portfolio11 from "../assets/img/portfolio/Graphics.jpg";
 
 const Portfolio = () => {
   const projects = [

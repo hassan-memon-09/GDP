@@ -1,8 +1,8 @@
 // ✅ About Page with Scroll-Based Timeline, Parallax, Text Shadow & Animations
 import React from "react";
-import about1 from "../assets/img/about/about-portrait-1.webp";
-import about2 from "../assets/img/about/about-8.webp";
-import about3 from "../assets/img/about/about-12.webp";
+import about1 from "../assets/img/about/About 1.jpg";
+import about2 from "../assets/img/about/About 2.jpg";
+import about3 from "../assets/img/about/About 3.jpg";
 import { motion } from "framer-motion";
 
 const About = () => {
