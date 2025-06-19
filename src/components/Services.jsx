@@ -1,7 +1,5 @@
-// ✅ Services Page with Proper Canvas Layer Behind Content
+// ✅ Services Page with Video Background Behind Content
 import React from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Stars } from "@react-three/drei";
 import { FaFilm, FaCube, FaMagic, FaChalkboard, FaPaintBrush, FaFont, FaSmile, FaPhotoVideo } from "react-icons/fa";
 import { motion } from "framer-motion";
 
@@ -42,18 +40,20 @@ const Services = () => {
   ];
 
   return (
-    <div className="relative m-0 p-0 -mt-4">
-      {/* Canvas Background Layer */}
-      <div className="absolute inset-0 -z-10">
-        <Canvas>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[5, 5, 5]} />
-          <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={2} />
-          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
-        </Canvas>
-      </div>
+    <div className="relative m-0 p-0 -mt-4 overflow-hidden">
+      {/* Video Background */}
+      {/* <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover -z-10"
+      >
+        <source src="../assets/video/Video 1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video> */}
 
-      <section className="relative z-10 py-20 px-6 md:px-20 bg-darkBg text-gold min-h-screen backdrop-blur-sm">
+      <section className="relative z-10 py-20 px-6 md:px-20 bg-darkBg/80 text-gold min-h-screen backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -72,13 +72,14 @@ const Services = () => {
             {serviceItems.map((item, index) => (
               <motion.div
                 key={index}
-                className="bg-shadowBlack p-6 rounded-lg flex flex-col items-center text-center hover:shadow-2xl hover:scale-105 transition-transform duration-300 ease-in-out"
+                className="bg-shadowBlack p-6 rounded-lg flex flex-col items-center text-center transition-transform duration-500 ease-in-out hover:scale-105 hover:bg-opacity-90 hover:shadow-2xl hover:shadow-gold/30"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
+                whileHover={{ scale: 1.07, rotate: 0.5 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="mb-4">{item.icon}</div>
+                <div className="mb-4 animate-pulse duration-700 ease-in-out hover:animate-none">{item.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                 <p className="text-softGold text-sm mb-4">{item.desc}</p>
                 <a href="#" className="inline-flex items-center text-gold font-semibold hover:text-softGold transition">
