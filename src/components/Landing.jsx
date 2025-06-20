@@ -64,7 +64,7 @@ const Landing = () => {
   return (
     <div className="relative overflow-hidden min-h-screen mt-4">
       {/* 🌌 Animated Starfield */}
-      <div className="fixed inset-0 -z-10">
+      {/* <div className="fixed inset-0 -z-10">
         <Canvas style={{ background: "black" }} camera={{ position: [0, 0, 5] }}>
           <ambientLight intensity={0.5} />
           <directionalLight position={[5, 5, 5]} />
@@ -72,10 +72,10 @@ const Landing = () => {
             <Starfield />
           </Suspense>
         </Canvas>
-      </div>
+      </div> */}
 
       {/* 💫 Foreground Content */}
-      <section className="relative z-10 bg-darkBg/80 backdrop-blur-sm text-gold py-24 px-6 md:px-20 lg:px-32 min-h-screen">
+      <section className="relative z-10 bg-darkBg backdrop-blur-sm text-gold py-24 px-6 md:px-20 lg:px-32 min-h-screen">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left Content */}
           <motion.div

@@ -53,7 +53,7 @@ const Services = () => {
         Your browser does not support the video tag.
       </video> */}
 
-      <section className="relative z-10 py-20 px-6 md:px-20 bg-darkBg/80 text-gold min-h-screen backdrop-blur-sm">
+      <section className="relative z-10 py-20 px-6 md:px-20 bg-darkBg text-gold min-h-screen backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -62,7 +62,7 @@ const Services = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">Our Services</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-2 mt-4">Our Services</h2>
             <p className="text-softGold max-w-xl mx-auto">
               Explore the range of creative and development services we offer to bring your ideas to life.
             </p>

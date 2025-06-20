@@ -15,6 +15,7 @@ import Services from "./components/Services";
 import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Portfolio from "./components/Portfolio";
 // import './index.css';
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/portfolio" element={<Portfolio />} />
         
       </Routes>
       <Footer/>

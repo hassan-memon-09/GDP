@@ -1,8 +1,8 @@
 // ✅ About Page with Scroll-Based Timeline, Parallax, Text Shadow & Animations
 import React from "react";
-import about1 from "../assets/img/about/About 1.jpg";
+import about1 from "../assets/img/about/About 4.webp";
 import about2 from "../assets/img/about/About 2.jpg";
-import about3 from "../assets/img/about/About 3.jpg";
+import about3 from "../assets/img/about/About 1.jpg";
 import { motion } from "framer-motion";
 
 const About = () => {
@@ -15,7 +15,7 @@ const About = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <p className="text-sm uppercase tracking-wider text-softGold mb-2 drop-shadow-md">Who We Are</p>
+          <p className="text-sm uppercase tracking-wider text-softGold mb-2 drop-shadow-md mt-4">Who We Are</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 drop-shadow-xl">
               Go Dekho Pakistan Is An Advertisement And Marketing Company.
           </h2>

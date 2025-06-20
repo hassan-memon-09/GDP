@@ -17,7 +17,7 @@ const Contact = () => {
         transition={{ staggerChildren: 0.2 }}
       >
         <motion.div variants={fadeUp} className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">Contact</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 mt-4">Contact</h2>
           <p className="text-softGold max-w-xl mx-auto">
             Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
           </p>
