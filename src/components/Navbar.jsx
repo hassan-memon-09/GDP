@@ -96,7 +96,7 @@ const Navbar = () => {
               </Link>
             ))}
             <Link
-              to="/about"
+              to="/services"
               className="mt-2 bg-gold text-black px-5 py-2 rounded font-semibold hover:bg-deepGold transition"
               onClick={() => setMenuOpen(false)}
             >
