@@ -1,4 +1,4 @@
-// ✅ Portfolio Page with Framer Motion + 3D Tile Hover Effects
+// ✅ Portfolio Page with Framer Motion + 3D Tile Hover Effects + Theme Shadow on Hover
 import React from "react";
 import { motion } from "framer-motion";
 import portfolio1 from "../assets/img/portfolio/Web.png";
@@ -60,7 +60,7 @@ const Portfolio = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-2 mt-4">Portfolio</h2>
           <p className="text-softGold max-w-xl mx-auto">
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
+           Our Portfolio page showcases a diverse range of creative work across web design, motion graphics, branding, and visual storytelling.
           </p>
         </motion.div>
 
@@ -77,7 +77,7 @@ const Portfolio = () => {
               <motion.div
                 whileHover={{ rotateY: 5, rotateX: 5, scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                className="rounded-lg overflow-hidden shadow-md bg-shadowBlack"
+                className="rounded-lg overflow-hidden shadow-md bg-shadowBlack transition duration-300 ease-in-out hover:shadow-xl hover:shadow-gold/40"
               >
                 <img src={item.img} alt={item.title} className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105" />
                 <div className="p-4 text-center">
